@@ -77,15 +77,18 @@ spot5.pack()
 spots.append(spot3.get())
 spot5.place(x=240,y=270)
 
-total = 0
-for i in range(0,4):
-    total += int(spots[i])
-avg = total / 5
-percentage = avg * 100
+for i in range(0,5):
+    total = 0
+    for i in range(0,4):
+        total += int(spots[i])
+    avg = total / 5
+    percentage = avg * 100
 
-spot_percentage = []
-for i in range(0,4):
-      spot_percentage.append(int(spot[i]) * 20)
+    spot_percentage = []
+    for i in range(0,4):
+          spot_percentage.append(int(spot[i]) * 20)
+
+team = []
  
 Button(mast,text = "Submit",width = 20).place(x=180,y=340)
 
