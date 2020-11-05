@@ -5,6 +5,24 @@ root.title("Registraion Form")
 label_0 = Label(root, text = "Registration form",width = 20,font =("bold", 20))
 label_0.place(x=90,y=53)
 
+MY_ADDRESS = 'my_address@example.comm'
+PASSWORD = 'mypassword'
+msg = EmailMessage()
+msg.set_content('testing python automated email program')
+#subject = 'Type_in_your_subject_here'
+subject = 'Testing python automated email'
+msg['Subject'] = subject
+msg['From'] = MY_ADDRESS
+msg['To'] = 'recipient_address_here'
+s.send_message(msg)
+s.quit()
+
+#s = smtplib.SMTP(host='your_host_address_here', port=your_port_here)
+s = smtplib.SMTP(host=' smtp.gmail.com', port=587)
+s.starttls()
+s.login(MY_ADDRESS, PASSWORD)
+
+
 label_1 = Label(root, text = "UserName", width=20,font=("bold",10))
 label_1.place(x=80,y=130)
 name = Entry(root)
