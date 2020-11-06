@@ -5,24 +5,6 @@ root.title("Registraion Form")
 label_0 = Label(root, text = "Registration form",width = 20,font =("bold", 20))
 label_0.place(x=90,y=53)
 
-MY_ADDRESS = 'my_address@example.comm'
-PASSWORD = 'mypassword'
-msg = EmailMessage()
-msg.set_content('testing python automated email program')
-#subject = 'Type_in_your_subject_here'
-subject = 'Testing python automated email'
-msg['Subject'] = subject
-msg['From'] = MY_ADDRESS
-msg['To'] = 'recipient_address_here'
-s.send_message(msg)
-s.quit()
-
-#s = smtplib.SMTP(host='your_host_address_here', port=your_port_here)
-s = smtplib.SMTP(host=' smtp.gmail.com', port=587)
-s.starttls()
-s.login(MY_ADDRESS, PASSWORD)
-
-
 label_1 = Label(root, text = "UserName", width=20,font=("bold",10))
 label_1.place(x=80,y=130)
 name = Entry(root)
@@ -32,8 +14,16 @@ name.place(x=240,y=130)
 label_2 = Label(root, text = "Email", width = 20, font=("bold", 10))
 label_2.place(x=80,y=180)
 
-entry_2 = Entry(root)
-entry_2.place(x=240, y = 180)
+address = Entry(root)
+address.place(x=240, y = 180)
+msg = EmailMessage()
+msg.set_content('testing python automated email program')
+subject = 'Testing python automated email'
+msg['Subject'] = subject
+msg['From'] = MY_ADDRESS
+msg['To'] = address.get()
+s.send_message(msg)
+s.quit()
 
 label_3 = Label(root, text= "Gender", width = 20, font=("bold", 10))
 label_3.place(x=80, y=230)
@@ -97,14 +87,14 @@ spot5.place(x=240,y=270)
 
 for i in range(0,5):
     total = 0
-    for i in range(0,4):
-        total += int(spots[i])
+    for j in range(0,4):
+        total += int(spots[j])
     avg = total / 5
     percentage = avg * 100
 
     spot_percentage = []
-    for i in range(0,4):
-          spot_percentage.append(int(spot[i]) * 20)
+    for k in range(0,4):
+          spot_percentage.append(int(spot[k]) * 20)
 
 team = []
  
