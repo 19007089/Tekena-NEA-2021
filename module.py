@@ -76,9 +76,9 @@ w1 = 0
 w2 = 0
 winner = ''
 rounds = 5
+victor = ''
 
-
-def start(p1_name,p2_name,rounds,w1,w2,winner):
+def start(p1_name,p2_name,rounds,w1,w2,winner,victor):
     label_5 = Label(root, text = "Team " + str(p1name.get()), width = 20, font=("bold", 10))
     label_5.place(x=50,y = 170)
     label_8 = Label(root, text = "Team " + str(p2name.get()), width = 20, font=("bold", 10))
@@ -96,7 +96,7 @@ def start(p1_name,p2_name,rounds,w1,w2,winner):
     for i in range(0,5):
         label_4 = Label(root, text = str(rounds),font = ("bold",15))
         label_4.place(x=1300,y=60) 
-        label_9 = Label(root, text = team1[i].name + " vs " + team2[i].name, font=("bold",10))
+        label_9 = Label(root, text = team1[i].name + " vs " + team2[i].name,font=("bold",10))
         label_9.place(x=800,y=155)
         if team1[i].lv > team2[i].lv:
                 winner = team1[i].name
@@ -104,19 +104,19 @@ def start(p1_name,p2_name,rounds,w1,w2,winner):
         else:
             winner = team2[i].name
             w2 += 1
-            label_10 = Label(root, text = winner + " won", font =("bold",10))
+            label_10 = Label(root, text = winner + " won",width = 20, font =("bold",10))
             label_10.place(x=800,y=255)
         rounds-=1               
     if w1==w2:
-        print("Game ended in draw", font = ("bold", 20))
+        print("Game ended in draw")
     else:
-        if w1>w2:
+        if w1>=w2:
             victor = p1name.get()
         else:
             victor = p2name.get()
-            print("Winner is" + victor, font = ("bold", 20))
+    print("Winner is " + victor)
             
-bstart = Button(root,text="start", command = lambda: start(p1_name,p2_name,rounds,w1,w2,winner))
+bstart = Button(root,text="start", command = lambda: start(p1_name,p2_name,rounds,w1,w2,winner,victor))
 bstart.place(x=40,y=130)
 label_3 = Label(root, text = "Round", width = 10, font = ("bold",15))
 label_3.place(x=1215,y=60)
